@@ -1,26 +1,62 @@
 @import "tailwindcss";
 
+/* next-themes toggles `.dark` / `.light` on <html> — default v4 `dark:` uses OS only */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --brand: #ff6a6a;
+  --brand-soft: #ff8e8e;
+  --teal: #2ec4b6;
+  --muted: #64748b;
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+.dark {
+  --background: #0b1220;
+  --foreground: #f1f5f9;
+  --muted: #94a3b8;
+  color-scheme: dark;
+}
+
+html.light,
+html:not(.dark) {
+  color-scheme: light;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.font-heading {
+  font-family: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Wall marquee */
+@keyframes wall-marquee {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-wall-marquee {
+  animation: wall-marquee 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-wall-marquee {
+    animation: none;
+  }
 }
