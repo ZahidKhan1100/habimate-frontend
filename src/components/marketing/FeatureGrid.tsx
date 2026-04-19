@@ -1,5 +1,5 @@
 import { GlassPanel } from "@/components/ui/glass-panel";
-import { Brain, Heart, Palmtree } from "lucide-react";
+import { Brain, Heart, Palmtree, RefreshCcw } from "lucide-react";
 
 const features = [
   {
@@ -20,16 +20,22 @@ const features = [
     body: "Don’t pay for what you don’t use. Split by days with exclusions when you’re away.",
     tag: "Fair",
   },
+  {
+    icon: RefreshCcw,
+    title: "Stock buy-backs",
+    body: "When someone moves out or the house buys shared supplies, keep transfers clear so nobody’s left holding the bag.",
+    tag: "Clear",
+  },
 ];
 
 export function FeatureGrid() {
   return (
-    <section className="px-6 py-24">
+    <section className="px-4 py-16 sm:px-6 sm:py-24">
       <div className="mx-auto max-w-6xl">
-        <h2 className="font-heading text-center text-3xl font-extrabold text-slate-900 dark:text-white md:text-4xl">
+        <h2 className="font-heading text-center text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl md:text-4xl">
           Built for real households
         </h2>
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {features.map((f) => (
             <GlassPanel key={f.title} className="p-6">
               <div className="flex items-center justify-between">

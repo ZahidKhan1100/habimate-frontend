@@ -15,12 +15,12 @@ export function WallLiveMock() {
   const loop = [...feed, ...feed];
 
   return (
-    <section className="border-b border-white/10 px-6 py-24 dark:bg-slate-900/20">
+    <section className="border-b border-white/10 px-4 py-16 dark:bg-slate-900/20 sm:px-6 sm:py-24">
       <div className="mx-auto max-w-6xl">
         <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-[#2EC4B6]">
           The Wall
         </p>
-        <h2 className="font-heading mt-3 text-center text-3xl font-extrabold text-slate-900 dark:text-white md:text-4xl">
+        <h2 className="font-heading mt-3 text-center text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl md:text-4xl">
           The vibe of your house, live
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-slate-600 dark:text-slate-300">

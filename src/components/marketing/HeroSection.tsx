@@ -8,7 +8,7 @@ import { Sparkles } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden px-6 pb-24 pt-16 md:pt-24">
+    <section className="relative overflow-hidden px-4 pb-16 pt-12 sm:px-6 sm:pb-24 sm:pt-16 md:pt-24">
       <div
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
@@ -16,7 +16,7 @@ export function HeroSection() {
             "radial-gradient(ellipse 90% 60% at 50% -20%, rgba(255,106,106,0.35) 0%, transparent 55%), radial-gradient(ellipse 60% 40% at 100% 50%, rgba(46,196,182,0.12) 0%, transparent 50%)",
         }}
       />
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:items-center">
+      <div className="mx-auto grid max-w-6xl gap-10 sm:gap-12 lg:grid-cols-2 lg:items-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -26,27 +26,27 @@ export function HeroSection() {
             <Sparkles className="h-3.5 w-3.5" />
             Home & roommates
           </p>
-          <h1 className="font-heading text-4xl font-extrabold leading-[1.08] tracking-tight text-slate-900 dark:text-white md:text-5xl lg:text-6xl">
+          <h1 className="font-heading text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white sm:text-4xl md:text-5xl lg:text-6xl">
             Shared Living,{" "}
             <span className="bg-gradient-to-r from-[#FF6A6A] to-[#FF8E8E] bg-clip-text text-transparent">
               Simplified.
             </span>
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          <p className="mt-5 max-w-lg text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:mt-6 sm:text-lg">
             Because you shouldn&apos;t pay for your roommate&apos;s 20-minute
             shower. Split bills fairly, stay transparent, and settle up without
             the spreadsheet chaos.
           </p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
             <a
               href="#download"
-              className="inline-flex h-14 items-center justify-center rounded-2xl bg-[#FF6A6A] px-8 font-semibold text-white shadow-xl shadow-[#FF6A6A]/30 transition hover:bg-[#ef5a5a]"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-[#FF6A6A] px-8 py-3.5 text-center font-semibold text-white shadow-xl shadow-[#FF6A6A]/30 transition hover:bg-[#ef5a5a] sm:min-h-14 sm:py-0"
             >
               App Store
             </a>
             <a
               href="#download"
-              className="inline-flex h-14 items-center justify-center rounded-2xl border border-white/10 bg-white/10 px-8 font-semibold text-slate-900 backdrop-blur-[15px] transition hover:bg-white/20 dark:text-white"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-white/10 bg-white/10 px-8 py-3.5 text-center font-semibold text-slate-900 backdrop-blur-[15px] transition hover:bg-white/20 dark:text-white sm:min-h-14 sm:py-0"
             >
               Google Play
             </a>

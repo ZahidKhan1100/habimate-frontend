@@ -74,15 +74,15 @@ export function VerifiedLeadSection() {
   return (
     <section
       id="verified"
-      className="border-b border-white/10 px-6 py-24 dark:bg-slate-950/30"
+      className="border-b border-white/10 px-4 py-16 dark:bg-slate-950/30 sm:px-6 sm:py-24"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div className="grid min-w-0 gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#2EC4B6]">
               Authority & trust
             </p>
-            <h2 className="font-heading mt-3 text-3xl font-extrabold text-slate-900 dark:text-white md:text-4xl">
+            <h2 className="font-heading mt-3 text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl md:text-4xl">
               HabiMate Verified
             </h2>
             <p className="mt-4 text-slate-600 dark:text-slate-300">
@@ -101,7 +101,7 @@ export function VerifiedLeadSection() {
             </ul>
           </div>
 
-          <GlassPanel className="p-6 md:p-8">
+          <GlassPanel className="p-5 sm:p-6 md:p-8">
             <p className="text-sm font-medium text-slate-600 dark:text-slate-300">
               Enter your email — we&apos;ll send the files to your device
               instantly. We&apos;ll only use this to follow up if you ask us to.
@@ -142,7 +142,7 @@ export function VerifiedLeadSection() {
                 type="submit"
                 disabled={status === "loading"}
                 className={cn(
-                  "flex w-full items-center justify-center gap-2 rounded-2xl bg-[#FF6A6A] py-4 font-bold text-white transition hover:bg-[#ef5a5a]",
+                  "flex min-h-[48px] w-full items-center justify-center gap-2 rounded-2xl bg-[#FF6A6A] px-4 py-3.5 text-sm font-bold text-white transition hover:bg-[#ef5a5a] sm:text-base",
                   status === "loading" && "opacity-50",
                 )}
               >

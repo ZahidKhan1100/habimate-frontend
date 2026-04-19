@@ -29,12 +29,12 @@ export function SplitEngineSection() {
   }, [mates]);
 
   return (
-    <section className="border-b border-white/10 px-6 py-24">
+    <section className="border-b border-white/10 px-4 py-16 sm:px-6 sm:py-24">
       <div className="mx-auto max-w-6xl">
         <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-[#2EC4B6]">
           The Split Engine
         </p>
-        <h2 className="font-heading mt-3 text-center text-3xl font-extrabold text-slate-900 dark:text-white md:text-4xl">
+        <h2 className="font-heading mt-3 text-center text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl md:text-4xl">
           How a ${TOTAL} bill splits when life isn&apos;t equal
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-slate-600 dark:text-slate-300">
@@ -42,8 +42,8 @@ export function SplitEngineSection() {
           instantly—fair shares, no drama.
         </p>
 
-        <GlassPanel className="mt-12 p-6 md:p-10">
-          <div className="grid gap-8 md:grid-cols-2">
+        <GlassPanel className="mt-10 p-4 sm:mt-12 sm:p-6 md:p-10">
+          <div className="grid min-w-0 gap-8 md:grid-cols-2">
             <div className="space-y-6">
               {mates.map((mate, idx) => (
                 <div key={mate.name}>
@@ -71,8 +71,8 @@ export function SplitEngineSection() {
                 </div>
               ))}
             </div>
-            <div>
-              <div className="flex h-48 items-end justify-around gap-2 gap-4 rounded-2xl bg-slate-900/50 p-4">
+            <div className="min-w-0 overflow-x-auto">
+              <div className="flex h-44 min-w-[260px] items-end justify-around gap-2 rounded-2xl bg-slate-900/50 p-3 sm:h-48 sm:gap-4 sm:p-4">
                 {shares.map((s) => (
                   <motion.div
                     key={s.name}

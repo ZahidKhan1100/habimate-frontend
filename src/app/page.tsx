@@ -34,31 +34,31 @@ export default function Home() {
 
         <section
           id="download"
-          className="border-t border-white/10 px-6 py-24 dark:bg-slate-900/40"
+          className="border-t border-white/10 px-4 py-16 dark:bg-slate-900/40 sm:px-6 sm:py-24"
         >
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="font-heading text-3xl font-extrabold text-slate-900 dark:text-white">
+            <h2 className="font-heading text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl">
               Get the app
             </h2>
-            <p className="mt-3 text-slate-600 dark:text-slate-300">
+            <p className="mt-3 text-sm text-slate-600 dark:text-slate-300 sm:text-base">
               Deep link into your house with Expo—add your Branch / universal
               link here when ready.
             </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="mt-8 flex w-full max-w-md flex-col items-stretch justify-center gap-3 sm:mx-auto sm:mt-10 sm:max-w-none sm:flex-row sm:items-center sm:gap-4">
               <a
                 href="#"
-                className="inline-flex h-14 min-w-[200px] items-center justify-center rounded-2xl bg-slate-900 px-8 font-semibold text-white dark:bg-white dark:text-slate-900"
+                className="inline-flex min-h-[48px] w-full items-center justify-center rounded-2xl bg-slate-900 px-8 py-3.5 font-semibold text-white dark:bg-white dark:text-slate-900 sm:min-h-14 sm:w-auto sm:min-w-[200px] sm:py-0"
               >
                 App Store
               </a>
               <a
                 href="#"
-                className="inline-flex h-14 min-w-[200px] items-center justify-center rounded-2xl border border-white/10 bg-white/10 font-semibold backdrop-blur-[15px]"
+                className="inline-flex min-h-[48px] w-full items-center justify-center rounded-2xl border border-white/10 bg-white/10 py-3.5 font-semibold backdrop-blur-[15px] sm:min-h-14 sm:w-auto sm:min-w-[200px] sm:py-0"
               >
                 Google Play
               </a>
             </div>
-            <GlassPanel className="mx-auto mt-12 max-w-lg p-6">
+            <GlassPanel className="mx-auto mt-10 max-w-lg p-5 sm:mt-12 sm:p-6">
               <p className="text-sm font-medium text-slate-600 dark:text-slate-300">
                 Join the waitlist for early access and house invites.
               </p>

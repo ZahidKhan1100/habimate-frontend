@@ -53,19 +53,19 @@ export function PersonaSections() {
   const HeroIcon = current.icon;
 
   return (
-    <section className="border-b border-white/10 px-6 py-24">
+    <section className="border-b border-white/10 px-4 py-16 sm:px-6 sm:py-24">
       <div className="mx-auto max-w-6xl">
         <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-[#FF6A6A]">
           Who are you?
         </p>
-        <h2 className="font-heading mt-3 text-center text-3xl font-extrabold text-slate-900 dark:text-white md:text-4xl">
+        <h2 className="font-heading mt-3 text-center text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl md:text-4xl">
           Same house. Different headaches.
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-slate-600 dark:text-slate-300">
           Pick a persona—we’ll show how HabiMate meets you where you are.
         </p>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-2 md:gap-3">
+        <div className="-mx-1 mt-8 flex snap-x snap-mandatory gap-2 overflow-x-auto px-1 pb-2 sm:mt-10 md:mx-0 md:flex-wrap md:justify-center md:overflow-visible md:px-0">
           {personas.map((p) => {
             const Icon = p.icon;
             const isOn = active === p.id;
@@ -75,7 +75,7 @@ export function PersonaSections() {
                 type="button"
                 onClick={() => setActive(p.id)}
                 className={cn(
-                  "inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold transition",
+                  "inline-flex shrink-0 snap-start items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold transition",
                   isOn
                     ? "border-[#FF6A6A] bg-[#FF6A6A]/15 text-slate-900 dark:text-white"
                     : "border-white/10 bg-white/5 text-slate-600 hover:bg-white/10 dark:text-slate-300",
@@ -88,7 +88,7 @@ export function PersonaSections() {
           })}
         </div>
 
-        <GlassPanel className="mt-10 p-8 md:p-10">
+        <GlassPanel className="mt-8 p-5 sm:mt-10 sm:p-8 md:p-10">
           <AnimatePresence mode="wait">
             <motion.div
               key={current.id}
