@@ -4,10 +4,23 @@ import Link from "next/link";
 import { HeroSection } from "@/components/marketing/HeroSection";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
-import { FeatureGrid } from "@/components/marketing/FeatureGrid";
 import { GlassPanel } from "@/components/ui/glass-panel";
 import { pageMetadata } from "@/lib/seo";
 
+const FeatureGrid = dynamic(
+  () =>
+    import("@/components/marketing/FeatureGrid").then((mod) => mod.FeatureGrid),
+  {
+    loading: () => (
+      <section className="px-4 py-16 sm:px-6 sm:py-24">
+        <div
+          className="mx-auto h-96 max-w-6xl animate-pulse rounded-3xl bg-slate-200/60 dark:bg-slate-800/40"
+          role="presentation"
+        />
+      </section>
+    ),
+  },
+);
 const FairnessCalculatorSection = dynamic(
   () =>
     import("@/components/marketing/FairnessCalculatorSection").then(

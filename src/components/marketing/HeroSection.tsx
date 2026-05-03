@@ -62,7 +62,7 @@ export function HeroSection() {
                 <div className="flex items-center justify-between text-xs text-white/60">
                   <span>9:41</span>
                   <span className="flex items-center gap-1.5 font-medium text-white/80">
-                    <SiteLogo size={18} className="rounded-md" />
+                    <SiteLogo decorative size={18} className="rounded-md" />
                     HabiMate
                   </span>
                 </div>
@@ -81,7 +81,7 @@ export function HeroSection() {
 function FloatingReceiptCard() {
   return (
     <div className="hm-hero-card rounded-xl border border-white/10 bg-white/10 p-3 backdrop-blur-md">
-      <p className="text-[10px] font-semibold uppercase tracking-wider text-[#2EC4B6]">
+      <p className="text-[10px] font-semibold uppercase tracking-wider text-teal-300">
         Receipt scanned
       </p>
       <p className="mt-1 text-sm font-bold text-white">Whole Foods</p>

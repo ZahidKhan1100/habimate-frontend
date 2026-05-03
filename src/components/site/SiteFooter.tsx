@@ -7,10 +7,10 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:px-6 md:flex-row md:justify-between">
         <div>
           <div className="flex items-center gap-3">
-            <SiteLogo size={44} className="rounded-lg" />
+            <SiteLogo decorative size={44} className="rounded-lg" />
             <p className="font-heading text-lg font-bold text-white">HabiMate</p>
           </div>
-          <p className="mt-2 max-w-sm text-sm leading-relaxed">
+          <p className="mt-2 max-w-sm text-sm leading-relaxed text-slate-300">
             Shared living, simplified. The referee—not the cop.
           </p>
         </div>
@@ -47,7 +47,7 @@ export function SiteFooter() {
           </Link>
         </div>
       </div>
-      <p className="mt-10 mx-auto max-w-2xl px-6 text-center text-[11px] leading-relaxed text-slate-400">
+      <p className="mt-10 mx-auto max-w-2xl px-6 text-center text-[11px] leading-relaxed text-slate-300">
         HabiMate provides tools to organize shared expenses—not legal, tax, or
         financial advice. See{" "}
         <Link
@@ -72,7 +72,7 @@ export function SiteFooter() {
         </Link>
         .
       </p>
-      <p className="mt-4 text-center text-xs text-slate-400">
+      <p className="mt-4 text-center text-xs text-slate-300">
         © {new Date().getFullYear()} HabiMate. All rights reserved.
       </p>
     </footer>

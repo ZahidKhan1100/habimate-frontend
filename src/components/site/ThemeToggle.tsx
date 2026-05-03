@@ -38,9 +38,9 @@ export function ThemeToggle({ className }: { className?: string }) {
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
       {isDark ? (
-        <Sun className="h-4 w-4 text-[#FF6A6A]" />
+        <Sun className="h-4 w-4 text-amber-400" aria-hidden />
       ) : (
-        <Moon className="h-4 w-4 text-[#2EC4B6]" />
+        <Moon className="h-4 w-4 text-teal-800" aria-hidden />
       )}
     </button>
   );

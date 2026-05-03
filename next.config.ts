@@ -1,6 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  compiler: {
+    removeConsole:
+      process.env.NODE_ENV === "production"
+        ? { exclude: ["error", "warn"] }
+        : false,
+  },
   images: {
     remotePatterns: [
       {
@@ -12,7 +18,11 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   experimental: {
-    optimizePackageImports: ["lucide-react", "@radix-ui/react-slider"],
+    optimizePackageImports: [
+      "lucide-react",
+      "@radix-ui/react-slider",
+      "framer-motion",
+    ],
   },
 };
 
