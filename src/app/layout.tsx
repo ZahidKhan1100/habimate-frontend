@@ -10,13 +10,17 @@ import { SITE_KEYWORDS } from "@/lib/seo";
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["700", "800"],
+  display: "swap",
+  adjustFontFallback: true,
 });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+  display: "swap",
+  adjustFontFallback: true,
 });
 
 export const viewport: Viewport = {

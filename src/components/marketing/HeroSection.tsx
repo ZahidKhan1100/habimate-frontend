@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { GlassPanel } from "@/components/ui/glass-panel";
 import { SiteLogo } from "@/components/site/SiteLogo";
@@ -17,13 +14,9 @@ export function HeroSection() {
         }}
       />
       <div className="mx-auto grid max-w-6xl gap-10 sm:gap-12 lg:grid-cols-2 lg:items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        >
+        <div className="hm-hero-rise">
           <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-teal-800 backdrop-blur-[15px] dark:text-teal-400">
-            <Sparkles className="h-3.5 w-3.5" />
+            <Sparkles className="h-3.5 w-3.5" aria-hidden />
             Home & roommates
           </p>
           <h1 className="font-heading text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white sm:text-4xl md:text-5xl lg:text-6xl">
@@ -59,14 +52,9 @@ export function HeroSection() {
               Join the community waitlist →
             </Link>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="relative"
-        >
+        <div className="relative hm-hero-zoom">
           <div className="absolute -right-8 -top-8 h-56 w-56 rounded-full bg-[#2EC4B6]/20 blur-3xl" />
           <GlassPanel className="relative p-6 md:p-8">
             <div className="rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 p-4 shadow-2xl">
@@ -84,7 +72,7 @@ export function HeroSection() {
               </div>
             </div>
           </GlassPanel>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -92,18 +80,13 @@ export function HeroSection() {
 
 function FloatingReceiptCard() {
   return (
-    <motion.div
-      initial={{ y: 12, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ delay: 0.5, duration: 0.5 }}
-      className="rounded-xl border border-white/10 bg-white/10 p-3 backdrop-blur-md"
-    >
+    <div className="hm-hero-card rounded-xl border border-white/10 bg-white/10 p-3 backdrop-blur-md">
       <p className="text-[10px] font-semibold uppercase tracking-wider text-[#2EC4B6]">
         Receipt scanned
       </p>
       <p className="mt-1 text-sm font-bold text-white">Whole Foods</p>
       <p className="text-xs text-white/60">AI · Gemini 1.5 Flash</p>
       <p className="mt-2 text-lg font-black text-[#FF6A6A]">$47.82</p>
-    </motion.div>
+    </div>
   );
 }
