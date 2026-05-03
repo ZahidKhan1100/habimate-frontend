@@ -1,26 +1,13 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { FeatureGrid } from "@/components/marketing/FeatureGrid";
 import { HeroSection } from "@/components/marketing/HeroSection";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { GlassPanel } from "@/components/ui/glass-panel";
 import { pageMetadata } from "@/lib/seo";
 
-const FeatureGrid = dynamic(
-  () =>
-    import("@/components/marketing/FeatureGrid").then((mod) => mod.FeatureGrid),
-  {
-    loading: () => (
-      <section className="px-4 py-16 sm:px-6 sm:py-24">
-        <div
-          className="mx-auto h-96 max-w-6xl animate-pulse rounded-3xl bg-slate-200/60 dark:bg-slate-800/40"
-          role="presentation"
-        />
-      </section>
-    ),
-  },
-);
 const FairnessCalculatorSection = dynamic(
   () =>
     import("@/components/marketing/FairnessCalculatorSection").then(
@@ -86,7 +73,7 @@ function MarketingSectionFallback({ label }: { label: string }) {
       aria-live="polite"
       aria-label={`Loading ${label}`}
       aria-busy
-      className="mx-auto mb-px flex min-h-[200px] w-full max-w-6xl animate-pulse flex-col items-center justify-center rounded-2xl border border-slate-200/60 bg-slate-50/90 dark:border-white/5 dark:bg-slate-900/50"
+      className="mx-auto mb-px flex min-h-[200px] w-full max-w-6xl flex-col items-center justify-center rounded-2xl border border-slate-200/60 bg-slate-50/90 dark:border-white/5 dark:bg-slate-900/50"
     />
   );
 }
@@ -109,13 +96,14 @@ export default function Home() {
       <SiteHeader />
       <main className="flex-1">
         <HeroSection />
-        <FairnessCalculatorSection />
-        <HouseWrappedPreview />
-        <SplitEngineSection />
-        <WallLiveMock />
-        <PersonaSections />
-        <FeatureGrid />
-        <VerifiedLeadSection />
+        <div className="home-below-hero">
+          <FairnessCalculatorSection />
+          <HouseWrappedPreview />
+          <SplitEngineSection />
+          <WallLiveMock />
+          <PersonaSections />
+          <FeatureGrid />
+          <VerifiedLeadSection />
 
         <section className="border-t border-white/10 bg-slate-950/40 px-4 py-8 sm:px-6">
           <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-2 text-center sm:flex-row sm:gap-6">
@@ -189,7 +177,7 @@ export default function Home() {
               </p>
               <Link
                 href="/whats-new"
-                className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-50 dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
+                className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-50 dark:border-slate-500 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-700"
               >
                 View “What’s New” →
               </Link>
@@ -236,6 +224,7 @@ export default function Home() {
             </GlassPanel>
           </div>
         </section>
+      </div>
       </main>
       <SiteFooter />
     </div>

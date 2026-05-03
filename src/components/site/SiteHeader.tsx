@@ -1,21 +1,8 @@
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { cn } from "@/lib/utils";
+import { MobileNav } from "@/components/site/MobileNav";
 import { SiteLogo } from "@/components/site/SiteLogo";
 import { ThemeToggle } from "@/components/site/ThemeToggle";
-
-const MobileNav = dynamic(
-  () => import("@/components/site/MobileNav").then((m) => m.MobileNav),
-  {
-    loading: () => (
-      <div
-        className="inline-flex min-h-11 min-w-11 animate-pulse rounded-xl bg-slate-200/80 dark:bg-white/10 md:hidden"
-        aria-hidden
-      />
-    ),
-    ssr: true,
-  },
-);
 
 const nav = [
   { href: "/", label: "Home" },
@@ -30,7 +17,7 @@ export function SiteHeader({ className }: { className?: string }) {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b border-white/10 bg-white/70 pt-[env(safe-area-inset-top)] backdrop-blur-[15px] dark:bg-slate-950/70",
+        "sticky top-0 z-50 border-b border-white/10 bg-white/95 pt-[env(safe-area-inset-top)] dark:bg-slate-950/95",
         className,
       )}
     >
@@ -52,6 +39,7 @@ export function SiteHeader({ className }: { className?: string }) {
             <Link
               key={item.href}
               href={item.href}
+              prefetch={false}
               className="text-sm font-medium text-slate-800 underline decoration-slate-500/70 transition hover:text-[#FF6A6A] hover:decoration-[#FF6A6A] dark:text-slate-200 dark:decoration-slate-400"
             >
               {item.label}
@@ -62,6 +50,7 @@ export function SiteHeader({ className }: { className?: string }) {
           <ThemeToggle />
           <Link
             href="/contact"
+            prefetch={false}
             className="hidden rounded-full bg-[#FF6A6A] px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-[#FF6A6A]/25 transition hover:bg-[#ef5a5a] sm:inline-flex"
           >
             Get support

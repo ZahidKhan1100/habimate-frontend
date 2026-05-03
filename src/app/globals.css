@@ -123,3 +123,9 @@ body {
   }
 }
 
+/* Home: skip layout/paint for off-screen sections (Moto G-class devices) */
+.home-below-hero {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 3200px;
+}
+
