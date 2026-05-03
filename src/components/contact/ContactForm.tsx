@@ -60,12 +60,18 @@ export function ContactForm() {
 
   return (
     <GlassPanel className="p-6 md:p-8">
-      <form onSubmit={onSubmit} className="space-y-6">
+      <form onSubmit={onSubmit} className="space-y-6" aria-label="Contact support">
         <div>
-          <label className="block text-sm font-medium text-slate-700 dark:text-slate-200">
+          <label
+            htmlFor="contact-name"
+            className="block text-sm font-medium text-slate-700 dark:text-slate-200"
+          >
             Name
           </label>
           <input
+            id="contact-name"
+            name="name"
+            autoComplete="name"
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -73,10 +79,16 @@ export function ContactForm() {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700 dark:text-slate-200">
+          <label
+            htmlFor="contact-email"
+            className="block text-sm font-medium text-slate-700 dark:text-slate-200"
+          >
             Email
           </label>
           <input
+            id="contact-email"
+            name="email"
+            autoComplete="email"
             required
             type="email"
             value={email}
@@ -85,10 +97,15 @@ export function ContactForm() {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700 dark:text-slate-200">
+          <label
+            htmlFor="contact-category"
+            className="block text-sm font-medium text-slate-700 dark:text-slate-200"
+          >
             Category
           </label>
           <select
+            id="contact-category"
+            name="category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             className="mt-2 w-full rounded-xl border border-white/10 bg-white/10 px-4 py-3 text-slate-900 backdrop-blur-[15px] focus:border-[#2EC4B6] focus:outline-none dark:text-white"
@@ -101,10 +118,15 @@ export function ContactForm() {
           </select>
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700 dark:text-slate-200">
+          <label
+            htmlFor="contact-message"
+            className="block text-sm font-medium text-slate-700 dark:text-slate-200"
+          >
             Message
           </label>
           <textarea
+            id="contact-message"
+            name="message"
             required
             rows={5}
             value={message}
@@ -112,17 +134,23 @@ export function ContactForm() {
             className="mt-2 w-full rounded-xl border border-white/10 bg-white/10 px-4 py-3 text-slate-900 backdrop-blur-[15px] focus:border-[#2EC4B6] focus:outline-none dark:text-white"
           />
         </div>
-        {status === "ok" && (
-          <p className="text-sm font-semibold text-[#2EC4B6]">
-            Thanks — we&apos;ve received your message.
-          </p>
-        )}
-        {status === "err" && (
-          <p className="text-sm font-semibold text-red-500">{errMsg}</p>
+        {(status === "ok" || status === "err") && (
+          <div role="status" aria-live="polite" className="min-h-[1.375rem]">
+            {status === "ok" && (
+              <p className="text-sm font-semibold text-[#1a9889] dark:text-[#2EC4B6]">
+                Thanks — we&apos;ve received your message.
+              </p>
+            )}
+            {status === "err" && (
+              <p className="text-sm font-semibold text-red-600 dark:text-red-400">{errMsg}</p>
+            )}
+          </div>
         )}
         <button
           type="submit"
           disabled={status === "loading"}
+          aria-busy={status === "loading"}
+          aria-label={status === "loading" ? "Sending message" : "Send contact message"}
           className={cn(
             "w-full rounded-2xl bg-[#FF6A6A] py-4 font-bold text-white transition hover:bg-[#ef5a5a]",
             status === "loading" && "opacity-50",

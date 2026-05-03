@@ -49,7 +49,7 @@ export function SplitEngineSection() {
                 <div key={mate.name}>
                   <div className="mb-2 flex justify-between text-sm font-medium">
                     <span style={{ color: mate.color }}>{mate.name}</span>
-                    <span className="text-slate-500">
+                    <span className="text-slate-600 dark:text-slate-400">
                       {mate.days} / {PERIOD_DAYS} days
                     </span>
                   </div>
@@ -58,6 +58,11 @@ export function SplitEngineSection() {
                     min={0}
                     max={PERIOD_DAYS}
                     value={mate.days}
+                    aria-label={`${mate.name}: days present in house this period`}
+                    aria-valuemin={0}
+                    aria-valuemax={PERIOD_DAYS}
+                    aria-valuenow={mate.days}
+                    aria-valuetext={`${mate.days} of ${PERIOD_DAYS} days`}
                     onChange={(e) => {
                       const v = Number(e.target.value);
                       setMates((prev) => {
@@ -96,7 +101,7 @@ export function SplitEngineSection() {
                   </motion.div>
                 ))}
               </div>
-              <p className="mt-4 text-center text-sm text-slate-500">
+              <p className="mt-4 text-center text-sm text-slate-600 dark:text-slate-400">
                 Total ${TOTAL.toFixed(2)} · Proportional to active days
               </p>
             </div>

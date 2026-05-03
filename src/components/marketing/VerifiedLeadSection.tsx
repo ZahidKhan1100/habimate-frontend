@@ -102,27 +102,43 @@ export function VerifiedLeadSection() {
           </div>
 
           <GlassPanel className="p-5 sm:p-6 md:p-8">
-            <p className="text-sm font-medium text-slate-600 dark:text-slate-300">
+            <p className="text-sm font-medium text-slate-700 dark:text-slate-300">
               Enter your email — we&apos;ll send the files to your device
               instantly. We&apos;ll only use this to follow up if you ask us to.
             </p>
-            <form onSubmit={onSubmit} className="mt-6 space-y-4">
+            <form
+              onSubmit={onSubmit}
+              className="mt-6 space-y-4"
+              aria-label="Download verified badge and house agreement template"
+            >
               <div>
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-200">
-                  Name <span className="text-slate-400">(optional)</span>
+                <label
+                  htmlFor="verified-name"
+                  className="block text-sm font-medium text-slate-700 dark:text-slate-200"
+                >
+                  Name <span className="font-normal text-slate-600 dark:text-slate-400">(optional)</span>
                 </label>
                 <input
+                  id="verified-name"
+                  name="name"
+                  autoComplete="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="First name"
-                  className="mt-2 w-full rounded-xl border border-white/10 bg-white/10 px-4 py-3 text-slate-900 backdrop-blur-[15px] focus:border-[#2EC4B6] focus:outline-none dark:text-white"
+                  className="mt-2 w-full rounded-xl border border-white/10 bg-white/10 px-4 py-3 text-slate-900 backdrop-blur-[15px] placeholder:text-slate-500 focus:border-[#2EC4B6] focus:outline-none dark:text-white dark:placeholder:text-slate-400"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-200">
+                <label
+                  htmlFor="verified-email"
+                  className="block text-sm font-medium text-slate-700 dark:text-slate-200"
+                >
                   Email
                 </label>
                 <input
+                  id="verified-email"
+                  name="email"
+                  autoComplete="email"
                   required
                   type="email"
                   value={email}
@@ -130,23 +146,33 @@ export function VerifiedLeadSection() {
                   className="mt-2 w-full rounded-xl border border-white/10 bg-white/10 px-4 py-3 text-slate-900 backdrop-blur-[15px] focus:border-[#2EC4B6] focus:outline-none dark:text-white"
                 />
               </div>
-              {status === "ok" && (
-                <p className="text-sm font-semibold text-[#2EC4B6]">
-                  Downloads started — check your browser if nothing appeared.
-                </p>
-              )}
-              {status === "err" && (
-                <p className="text-sm font-semibold text-red-500">{errMsg}</p>
+              {(status === "ok" || status === "err") && (
+                <div role="status" aria-live="polite" className="min-h-[1.375rem]">
+                  {status === "ok" && (
+                    <p className="text-sm font-semibold text-[#1a9889] dark:text-[#2EC4B6]">
+                      Downloads started — check your browser if nothing appeared.
+                    </p>
+                  )}
+                  {status === "err" && (
+                    <p className="text-sm font-semibold text-red-600 dark:text-red-400">{errMsg}</p>
+                  )}
+                </div>
               )}
               <button
                 type="submit"
                 disabled={status === "loading"}
+                aria-busy={status === "loading"}
+                aria-label={
+                  status === "loading"
+                    ? "Preparing downloads"
+                    : "Request verified badge and house agreement downloads by email"
+                }
                 className={cn(
                   "flex min-h-[48px] w-full items-center justify-center gap-2 rounded-2xl bg-[#FF6A6A] px-4 py-3.5 text-sm font-bold text-white transition hover:bg-[#ef5a5a] sm:text-base",
                   status === "loading" && "opacity-50",
                 )}
               >
-                <Download className="h-5 w-5" />
+                <Download className="h-5 w-5 shrink-0" aria-hidden />
                 {status === "loading"
                   ? "Preparing…"
                   : "Email me the badge & template"}

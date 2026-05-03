@@ -195,12 +195,13 @@ export function FairnessCalculatorSection() {
                   <span className="text-sm font-bold text-slate-700 dark:text-slate-200">
                     Housemates ({mates.length})
                   </span>
-                  <button
-                    type="button"
-                    onClick={addMate}
-                    disabled={mates.length >= MAX_MATES}
-                    className="rounded-lg bg-[#FF6A6A]/15 px-3 py-1.5 text-xs font-bold text-[#FF6A6A] hover:bg-[#FF6A6A]/25 disabled:cursor-not-allowed disabled:opacity-40"
-                  >
+              <button
+                type="button"
+                onClick={addMate}
+                disabled={mates.length >= MAX_MATES}
+                aria-label="Add another housemate to the fairness simulator"
+                className="rounded-lg bg-[#FF6A6A]/15 px-3 py-1.5 text-xs font-bold text-[#FF6A6A] hover:bg-[#FF6A6A]/25 disabled:cursor-not-allowed disabled:opacity-40"
+              >
                     + Add mate
                   </button>
                 </div>
@@ -223,7 +224,8 @@ export function FairnessCalculatorSection() {
                           <button
                             type="button"
                             onClick={() => removeMate(m.id)}
-                            className="rounded-lg px-2 py-1 text-xs font-bold text-slate-400 hover:bg-red-500/10 hover:text-red-500"
+                            className="rounded-lg px-2 py-1 text-xs font-bold text-slate-500 hover:bg-red-500/10 hover:text-red-600 dark:text-slate-400 dark:hover:text-red-400"
+                            aria-label={`Remove ${m.name || `mate ${idx + 1}`}`}
                           >
                             Remove
                           </button>
@@ -296,10 +298,14 @@ export function FairnessCalculatorSection() {
                       format={(v) => `$${v}`}
                     />
                     <div>
-                      <label className="mb-2 block text-sm font-bold text-slate-700 dark:text-slate-200">
+                      <label
+                        htmlFor="fairness-bill-payer"
+                        className="mb-2 block text-sm font-bold text-slate-700 dark:text-slate-200"
+                      >
                         Who paid the full bill upfront?
                       </label>
                       <select
+                        id="fairness-bill-payer"
                         value={payerIndex}
                         onChange={(e) =>
                           setPayerIndex(Number(e.target.value))
@@ -313,7 +319,7 @@ export function FairnessCalculatorSection() {
                         ))}
                       </select>
                     </div>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                    <p className="text-sm text-slate-600 dark:text-slate-400">
                       Fair shares use each person&apos;s days in the house
                       (weighted split, cent-safe). Settlement lines show who
                       should pay the person who advanced the money.
@@ -336,7 +342,7 @@ export function FairnessCalculatorSection() {
                       step={5}
                       format={(v) => `$${v}`}
                     />
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                    <p className="text-sm text-slate-600 dark:text-slate-400">
                       Pick who bought the item (buyer) and who is chipping in.
                       The pool is split in whole cents across payers—same as the
                       app.
@@ -349,6 +355,8 @@ export function FairnessCalculatorSection() {
                 type="button"
                 onClick={onGenerate}
                 disabled={!canGenerate}
+                aria-controls="settlement-result"
+                aria-label="Generate fairness settlement preview"
                 className="min-h-[48px] w-full rounded-2xl bg-[#2EC4B6] py-3.5 text-center text-base font-black text-white shadow-lg shadow-[#2EC4B6]/25 transition hover:bg-[#26b0a3] disabled:cursor-not-allowed disabled:opacity-40 sm:py-4"
               >
                 Generate settlement
@@ -364,7 +372,7 @@ export function FairnessCalculatorSection() {
                   <p className="text-3xl" aria-hidden>
                     🧮
                   </p>
-                  <p className="max-w-xs text-sm font-semibold text-white/70">
+                  <p className="max-w-xs text-sm font-semibold text-white/85">
                     Add your housemates, adjust amounts, then tap{" "}
                     <span className="text-[#2EC4B6]">Generate settlement</span>{" "}
                     to see fair shares and transfers.
@@ -558,6 +566,7 @@ function SliderField({
         max={max}
         step={step}
         onValueChange={onChange}
+        aria-label={`${label}, current ${format(v)}`}
       >
         <Slider.Track className="relative h-2 grow rounded-full bg-slate-200 dark:bg-slate-700">
           <Slider.Range className="absolute h-full rounded-full bg-[#FF6A6A]" />
