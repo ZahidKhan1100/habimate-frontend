@@ -22,7 +22,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#2EC4B6] backdrop-blur-[15px]">
+          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-teal-800 backdrop-blur-[15px] dark:text-teal-400">
             <Sparkles className="h-3.5 w-3.5" />
             Home & roommates
           </p>
@@ -54,7 +54,7 @@ export function HeroSection() {
           <div className="mt-6">
             <Link
               href="/contact"
-              className="text-sm font-semibold text-[#2EC4B6] underline-offset-4 hover:underline"
+              className="text-sm font-semibold text-teal-800 underline-offset-4 hover:underline dark:text-teal-300"
             >
               Join the community waitlist →
             </Link>

@@ -79,7 +79,7 @@ export function VerifiedLeadSection() {
       <div className="mx-auto max-w-6xl">
         <div className="grid min-w-0 gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#2EC4B6]">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-teal-800 dark:text-teal-400">
               Authority & trust
             </p>
             <h2 className="font-heading mt-3 text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl md:text-4xl">
@@ -162,11 +162,6 @@ export function VerifiedLeadSection() {
                 type="submit"
                 disabled={status === "loading"}
                 aria-busy={status === "loading"}
-                aria-label={
-                  status === "loading"
-                    ? "Preparing downloads"
-                    : "Request verified badge and house agreement downloads by email"
-                }
                 className={cn(
                   "flex min-h-[48px] w-full items-center justify-center gap-2 rounded-2xl bg-[#FF6A6A] px-4 py-3.5 text-sm font-bold text-white transition hover:bg-[#ef5a5a] sm:text-base",
                   status === "loading" && "opacity-50",

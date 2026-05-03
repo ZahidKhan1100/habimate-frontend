@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useCallback } from "react";
+import { useMemo, useState, useCallback, useId } from "react";
 import * as Slider from "@radix-ui/react-slider";
 import { motion, AnimatePresence } from "framer-motion";
 import { GlassPanel } from "@/components/ui/glass-panel";
@@ -151,7 +151,7 @@ export function FairnessCalculatorSection() {
       className="border-b border-white/10 px-4 py-16 dark:bg-slate-950/40 sm:px-6 sm:py-24"
     >
       <div className="mx-auto max-w-6xl">
-        <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-[#2EC4B6]">
+        <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-teal-800 dark:text-teal-400">
           Live calculator · add your house
         </p>
         <h2 className="font-heading mt-3 text-center text-3xl font-extrabold text-slate-900 dark:text-white md:text-4xl">
@@ -199,8 +199,7 @@ export function FairnessCalculatorSection() {
                 type="button"
                 onClick={addMate}
                 disabled={mates.length >= MAX_MATES}
-                aria-label="Add another housemate to the fairness simulator"
-                className="rounded-lg bg-[#FF6A6A]/15 px-3 py-1.5 text-xs font-bold text-[#FF6A6A] hover:bg-[#FF6A6A]/25 disabled:cursor-not-allowed disabled:opacity-40"
+                className="rounded-lg bg-[#FF6A6A]/15 px-3 py-1.5 text-xs font-bold text-[#dc2626] hover:bg-[#FF6A6A]/25 disabled:cursor-not-allowed disabled:opacity-40 dark:text-[#FF6A6A]"
               >
                     + Add mate
                   </button>
@@ -246,20 +245,27 @@ export function FairnessCalculatorSection() {
                       )}
                       {mode === "buyback" && (
                         <div className="mt-3 flex flex-wrap items-center gap-3 text-xs">
-                          <label className="inline-flex cursor-pointer items-center gap-2 font-semibold text-slate-600 dark:text-slate-300">
+                          <label
+                            htmlFor={`fairness-buyer-${m.id}`}
+                            className="inline-flex cursor-pointer items-center gap-2 font-semibold text-slate-700 dark:text-slate-300"
+                          >
                             <input
+                              id={`fairness-buyer-${m.id}`}
                               type="radio"
                               name="buyer"
                               checked={effectiveBuyerId === m.id}
                               onChange={() => setBuyerId(m.id)}
                               className="accent-[#FF6A6A]"
-                              aria-label={`${m.name || "Mate"} is the buyer (receives reimbursements)`}
                             />
-                            Buyer (gets paid)
+                            Buyer (gets paid) — {m.name || "Mate"}
                           </label>
                           {m.id !== effectiveBuyerId && (
-                            <label className="inline-flex cursor-pointer items-center gap-2 font-semibold text-slate-600 dark:text-slate-300">
+                            <label
+                              htmlFor={`fairness-reimb-${m.id}`}
+                              className="inline-flex cursor-pointer items-center gap-2 font-semibold text-slate-700 dark:text-slate-300"
+                            >
                               <input
+                                id={`fairness-reimb-${m.id}`}
                                 type="checkbox"
                                 checked={reimburseOn[m.id] !== false}
                                 onChange={(e) =>
@@ -268,10 +274,9 @@ export function FairnessCalculatorSection() {
                                     [m.id]: e.target.checked,
                                   }))
                                 }
-                                className="accent-[#2EC4B6]"
-                                aria-label={`${m.name || "Mate"} pays back their share`}
+                                className="accent-[#0d9488]"
                               />
-                              Pays back
+                              Pays back — {m.name || "Mate"}
                             </label>
                           )}
                         </div>
@@ -358,8 +363,7 @@ export function FairnessCalculatorSection() {
                 onClick={onGenerate}
                 disabled={!canGenerate}
                 aria-controls="settlement-result"
-                aria-label="Generate fairness settlement preview"
-                className="min-h-[48px] w-full rounded-2xl bg-[#2EC4B6] py-3.5 text-center text-base font-black text-white shadow-lg shadow-[#2EC4B6]/25 transition hover:bg-[#26b0a3] disabled:cursor-not-allowed disabled:opacity-40 sm:py-4"
+                className="min-h-[48px] w-full rounded-2xl bg-[#0d9488] py-3.5 text-center text-base font-black text-white shadow-lg shadow-teal-700/25 transition hover:bg-[#0f766e] disabled:cursor-not-allowed disabled:opacity-40 sm:py-4"
               >
                 Generate settlement
               </button>
@@ -376,7 +380,7 @@ export function FairnessCalculatorSection() {
                   </p>
                   <p className="max-w-xs text-sm font-semibold text-white/85">
                     Add your housemates, adjust amounts, then tap{" "}
-                    <span className="text-[#2EC4B6]">Generate settlement</span>{" "}
+                    <span className="text-teal-300">Generate settlement</span>{" "}
                     to see fair shares and transfers.
                   </p>
                 </div>
@@ -409,7 +413,7 @@ export function FairnessCalculatorSection() {
                           )}
                         </span>
                         <div className="text-right">
-                          <span className="font-mono text-base font-bold text-[#2EC4B6]">
+                          <span className="font-mono text-base font-bold text-teal-300">
                             ${expensePlan.shares[i].toFixed(2)}
                           </span>
                           <span className="ml-2 text-[10px] text-white/55">
@@ -422,7 +426,7 @@ export function FairnessCalculatorSection() {
                   {mates.map((m, i) => (
                     <div key={`sv-${m.id}`}>
                       {expensePlan.savings[i] >= 0.01 && (
-                        <p className="mt-2 text-xs font-bold text-[#2EC4B6]/90">
+                        <p className="mt-2 text-xs font-bold text-teal-300/90">
                           {m.name}: ${expensePlan.savings[i].toFixed(2)} saved
                           vs equal ${expensePlan.naive.toFixed(2)} each
                         </p>
@@ -450,7 +454,7 @@ export function FairnessCalculatorSection() {
                               <span className="text-white/65">→</span>{" "}
                               {mates[t.to].name}
                             </span>
-                            <span className="shrink-0 font-mono font-bold text-[#2EC4B6]">
+                            <span className="shrink-0 font-mono font-bold text-teal-300">
                               ${t.amount.toFixed(2)}
                             </span>
                           </li>
@@ -477,7 +481,7 @@ export function FairnessCalculatorSection() {
                           {r.fromName}{" "}
                           <span className="text-white/65">→</span> {r.toName}
                         </span>
-                        <span className="shrink-0 font-mono text-base font-bold text-[#2EC4B6] sm:text-lg">
+                        <span className="shrink-0 font-mono text-base font-bold text-teal-300 sm:text-lg">
                           ${r.amount.toFixed(2)}
                         </span>
                       </li>
@@ -529,7 +533,7 @@ function ModeTab({
       className={`rounded-xl px-3 py-2 text-xs font-bold transition sm:px-4 sm:py-2.5 sm:text-sm ${
         active
           ? "bg-[#FF6A6A] text-white shadow-md shadow-[#FF6A6A]/25"
-          : "text-slate-600 hover:bg-white/60 dark:text-slate-300 dark:hover:bg-white/10"
+          : "text-slate-800 hover:bg-white/60 dark:text-slate-300 dark:hover:bg-white/10"
       }`}
     >
       {children}
@@ -555,11 +559,20 @@ function SliderField({
   format: (v: number) => string;
 }) {
   const v = value[0];
+  const headingId = useId();
   return (
     <div>
-      <div className="mb-3 flex justify-between text-sm font-medium text-slate-700 dark:text-slate-200">
+      <div
+        id={headingId}
+        className="mb-3 flex justify-between text-sm font-medium text-slate-700 dark:text-slate-200"
+      >
         <span>{label}</span>
-        <span className="text-[#2EC4B6]">{format(v)}</span>
+        <span
+          className="tabular-nums text-teal-800 dark:text-teal-300"
+          aria-hidden="true"
+        >
+          {format(v)}
+        </span>
       </div>
       <Slider.Root
         className="relative flex h-6 w-full touch-none select-none items-center"
@@ -568,12 +581,15 @@ function SliderField({
         max={max}
         step={step}
         onValueChange={onChange}
-        aria-label={`${label}, current ${format(v)}`}
       >
         <Slider.Track className="relative h-2 grow rounded-full bg-slate-200 dark:bg-slate-700">
           <Slider.Range className="absolute h-full rounded-full bg-[#FF6A6A]" />
         </Slider.Track>
-        <Slider.Thumb className="block h-5 w-5 rounded-full border-2 border-white bg-white shadow-md ring-2 ring-[#FF6A6A]/40 focus:outline-none" />
+        <Slider.Thumb
+          className="block h-5 w-5 rounded-full border-2 border-white bg-white shadow-md ring-2 ring-[#FF6A6A]/40 focus:outline-none"
+          aria-labelledby={headingId}
+          aria-valuetext={format(v)}
+        />
       </Slider.Root>
     </div>
   );

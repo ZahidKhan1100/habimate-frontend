@@ -11,8 +11,8 @@ type Mate = { name: string; days: number; color: string };
 
 const defaultMates: Mate[] = [
   { name: "Alex", days: 30, color: "#FF6A6A" },
-  { name: "Jordan", days: 18, color: "#2EC4B6" },
-  { name: "Sam", days: 24, color: "#a78bfa" },
+  { name: "Jordan", days: 18, color: "#0f766e" },
+  { name: "Sam", days: 24, color: "#6d28d9" },
 ];
 
 export function SplitEngineSection() {
@@ -31,13 +31,13 @@ export function SplitEngineSection() {
   return (
     <section className="border-b border-white/10 px-4 py-16 sm:px-6 sm:py-24">
       <div className="mx-auto max-w-6xl">
-        <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-[#2EC4B6]">
+        <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-teal-800 dark:text-teal-400">
           The Split Engine
         </p>
         <h2 className="font-heading mt-3 text-center text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl md:text-4xl">
           How a ${TOTAL} bill splits when life isn&apos;t equal
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-center text-slate-600 dark:text-slate-300">
+        <p className="mx-auto mt-4 max-w-2xl text-center text-slate-700 dark:text-slate-300">
           Drag &quot;days in the house&quot; for each roommate. The math updates
           instantly—fair shares, no drama.
         </p>
@@ -45,23 +45,25 @@ export function SplitEngineSection() {
         <GlassPanel className="mt-10 p-4 sm:mt-12 sm:p-6 md:p-10">
           <div className="grid min-w-0 gap-8 md:grid-cols-2">
             <div className="space-y-6">
-              {mates.map((mate, idx) => (
+              {mates.map((mate, idx) => {
+                const daysInputId = `split-engine-days-${idx}`;
+                return (
                 <div key={mate.name}>
-                  <div className="mb-2 flex justify-between text-sm font-medium">
+                  <label
+                    htmlFor={daysInputId}
+                    className="mb-2 flex justify-between text-sm font-medium"
+                  >
                     <span style={{ color: mate.color }}>{mate.name}</span>
-                    <span className="text-slate-600 dark:text-slate-400">
+                    <span className="text-slate-700 dark:text-slate-300">
                       {mate.days} / {PERIOD_DAYS} days
                     </span>
-                  </div>
+                  </label>
                   <input
+                    id={daysInputId}
                     type="range"
                     min={0}
                     max={PERIOD_DAYS}
                     value={mate.days}
-                    aria-label={`${mate.name}: days present in house this period`}
-                    aria-valuemin={0}
-                    aria-valuemax={PERIOD_DAYS}
-                    aria-valuenow={mate.days}
                     aria-valuetext={`${mate.days} of ${PERIOD_DAYS} days`}
                     onChange={(e) => {
                       const v = Number(e.target.value);
@@ -74,7 +76,8 @@ export function SplitEngineSection() {
                     className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-[#FF6A6A] dark:bg-slate-700"
                   />
                 </div>
-              ))}
+                );
+              })}
             </div>
             <div className="min-w-0 overflow-x-auto">
               <div className="flex h-44 min-w-[260px] items-end justify-around gap-2 rounded-2xl bg-slate-900/50 p-3 sm:h-48 sm:gap-4 sm:p-4">
@@ -95,7 +98,7 @@ export function SplitEngineSection() {
                     <p className="mt-2 text-center text-xs font-bold text-white">
                       {s.name}
                     </p>
-                    <p className="text-sm font-black text-[#2EC4B6]">
+                    <p className="text-sm font-black text-teal-300">
                       ${s.amount.toFixed(2)}
                     </p>
                   </motion.div>

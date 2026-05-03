@@ -106,13 +106,13 @@ export default function Home() {
 
         <section className="border-t border-white/10 bg-slate-950/40 px-4 py-8 sm:px-6">
           <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-2 text-center sm:flex-row sm:gap-6">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#2EC4B6]">
+            <p className="text-xs font-semibold uppercase tracking-widest text-teal-900 dark:text-teal-300">
               Privacy &amp; compliance
             </p>
-            <p className="text-sm text-slate-700 dark:text-slate-300">
+            <p className="text-sm text-slate-800 dark:text-slate-300">
               <Link
                 href="/privacy"
-                className="font-semibold text-[#0d9488] underline-offset-2 hover:underline dark:text-[#2EC4B6]"
+                className="font-semibold text-teal-900 underline underline-offset-2 hover:text-teal-950 dark:text-teal-300 dark:hover:text-teal-200"
               >
                 Privacy &amp; Trust
               </Link>
@@ -121,7 +121,7 @@ export default function Home() {
               </span>
               <Link
                 href="/terms"
-                className="font-semibold text-[#0d9488] underline-offset-2 hover:underline dark:text-[#2EC4B6]"
+                className="font-semibold text-teal-900 underline underline-offset-2 hover:text-teal-950 dark:text-teal-300 dark:hover:text-teal-200"
               >
                 Terms of Service
               </Link>
@@ -132,7 +132,7 @@ export default function Home() {
         <section className="border-t border-white/10 px-4 py-16 dark:bg-slate-900/40 sm:px-6 sm:py-24">
           <div className="mx-auto max-w-6xl">
             <div className="max-w-3xl">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#2EC4B6]">
+              <p className="text-xs font-bold uppercase tracking-widest text-teal-800 dark:text-teal-400">
                 What’s new
               </p>
               <h2 className="mt-3 font-heading text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl">
@@ -199,14 +199,12 @@ export default function Home() {
             <div className="mt-8 flex w-full max-w-md flex-col items-stretch justify-center gap-3 sm:mx-auto sm:mt-10 sm:max-w-none sm:flex-row sm:items-center sm:gap-4">
               <a
                 href="#"
-                aria-label="Download on the App Store (link coming soon)"
                 className="inline-flex min-h-[48px] w-full items-center justify-center rounded-2xl bg-slate-900 px-8 py-3.5 font-semibold text-white dark:bg-white dark:text-slate-900 sm:min-h-14 sm:w-auto sm:min-w-[200px] sm:py-0"
               >
                 App Store
               </a>
               <a
                 href="#"
-                aria-label="Get it on Google Play (link coming soon)"
                 className="inline-flex min-h-[48px] w-full items-center justify-center rounded-2xl border border-slate-300 bg-white py-3.5 font-semibold text-slate-900 hover:bg-slate-50 dark:border-white/15 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800 sm:min-h-14 sm:w-auto sm:min-w-[200px] sm:py-0"
               >
                 Google Play
@@ -218,7 +216,7 @@ export default function Home() {
               </p>
               <Link
                 href="/contact"
-                className="mt-4 inline-flex font-bold text-[#0d9488] hover:underline dark:text-[#2EC4B6]"
+                className="mt-4 inline-flex font-bold text-teal-800 underline underline-offset-2 hover:text-teal-900 dark:text-teal-300 dark:hover:text-teal-200"
               >
                 Contact us →
               </Link>

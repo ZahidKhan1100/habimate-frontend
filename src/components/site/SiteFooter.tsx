@@ -17,25 +17,31 @@ export function SiteFooter() {
         <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm sm:gap-8">
           <Link
             href="/whats-new"
-            className="underline decoration-slate-500 underline-offset-2 hover:text-[#2EC4B6] hover:decoration-[#2EC4B6]"
+            className="text-teal-300 underline decoration-slate-500 underline-offset-2 hover:text-teal-200 hover:decoration-teal-300"
           >
             What’s New
           </Link>
           <Link
             href="/fairness"
-            className="underline decoration-slate-500 underline-offset-2 hover:text-[#2EC4B6] hover:decoration-[#2EC4B6]"
+            className="text-teal-300 underline decoration-slate-500 underline-offset-2 hover:text-teal-200 hover:decoration-teal-300"
           >
             Fairness engine
           </Link>
-          <Link href="/privacy" className="underline decoration-slate-500 underline-offset-2 hover:text-[#2EC4B6] hover:decoration-[#2EC4B6]">
+          <Link
+            href="/privacy"
+            className="text-teal-300 underline decoration-slate-500 underline-offset-2 hover:text-teal-200 hover:decoration-teal-300"
+          >
             Privacy
           </Link>
-          <Link href="/terms" className="underline decoration-slate-500 underline-offset-2 hover:text-[#2EC4B6] hover:decoration-[#2EC4B6]">
+          <Link
+            href="/terms"
+            className="text-teal-300 underline decoration-slate-500 underline-offset-2 hover:text-teal-200 hover:decoration-teal-300"
+          >
             Terms
           </Link>
           <Link
             href="/contact"
-            className="underline decoration-slate-500 underline-offset-2 hover:text-[#2EC4B6] hover:decoration-[#2EC4B6]"
+            className="text-teal-300 underline decoration-slate-500 underline-offset-2 hover:text-teal-200 hover:decoration-teal-300"
           >
             Contact
           </Link>
@@ -46,21 +52,21 @@ export function SiteFooter() {
         financial advice. See{" "}
         <Link
           href="/fairness#calculations-disclaimer"
-          className="font-medium text-[#2EC4B6] underline decoration-[#2EC4B6]/70 underline-offset-2 hover:text-[#26b0a3]"
+          className="font-medium text-teal-300 underline decoration-teal-400/70 underline-offset-2 hover:text-teal-200"
         >
           how we round amounts
         </Link>
         ,{" "}
         <Link
           href="/privacy"
-          className="font-medium text-[#2EC4B6] underline decoration-[#2EC4B6]/70 underline-offset-2 hover:text-[#26b0a3]"
+          className="font-medium text-teal-300 underline decoration-teal-400/70 underline-offset-2 hover:text-teal-200"
         >
           Privacy &amp; Trust
         </Link>
         , and{" "}
         <Link
           href="/terms"
-          className="font-medium text-[#2EC4B6] underline decoration-[#2EC4B6]/70 underline-offset-2 hover:text-[#26b0a3]"
+          className="font-medium text-teal-300 underline decoration-teal-400/70 underline-offset-2 hover:text-teal-200"
         >
           Terms of Service
         </Link>

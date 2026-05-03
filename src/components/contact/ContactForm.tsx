@@ -150,7 +150,6 @@ export function ContactForm() {
           type="submit"
           disabled={status === "loading"}
           aria-busy={status === "loading"}
-          aria-label={status === "loading" ? "Sending message" : "Send contact message"}
           className={cn(
             "w-full rounded-2xl bg-[#FF6A6A] py-4 font-bold text-white transition hover:bg-[#ef5a5a]",
             status === "loading" && "opacity-50",

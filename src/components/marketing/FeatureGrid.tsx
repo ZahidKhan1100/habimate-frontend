@@ -40,7 +40,7 @@ export function FeatureGrid() {
             <GlassPanel key={f.title} className="p-6">
               <div className="flex items-center justify-between">
                 <f.icon className="h-8 w-8 text-[#FF6A6A]" strokeWidth={1.5} />
-                <span className="rounded-full bg-[#2EC4B6]/15 px-2 py-0.5 text-xs font-bold text-[#2EC4B6]">
+                <span className="rounded-full bg-teal-800/15 px-2 py-0.5 text-xs font-bold text-teal-900 dark:bg-teal-400/15 dark:text-teal-300">
                   {f.tag}
                 </span>
               </div>
