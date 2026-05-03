@@ -4,17 +4,19 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { FairnessCalculatorSection } from "@/components/marketing/FairnessCalculatorSection";
 import { GlassPanel } from "@/components/ui/glass-panel";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "The Fairness Engine | HabiMate",
+export const metadata: Metadata = pageMetadata({
+  title: "Fairness engine",
   description:
-    "Guest fees, stock buy-backs, and proportional splits—why HabiMate is different.",
-  openGraph: {
-    title: "The Fairness Engine | HabiMate",
-    description: "See how bills change when days stayed change—in real time.",
-    type: "website",
-  },
-};
+    "How HabiMate splits roommate bills fairly: guest-night weights, day-weighted utilities, proportional shares, and transparent rounding.",
+  path: "/fairness",
+  keywords: [
+    "fair bill split",
+    "day weighted split",
+    "roommate fairness",
+  ],
+});
 
 export default function FairnessPage() {
   return (

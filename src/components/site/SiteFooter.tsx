@@ -15,11 +15,17 @@ export function SiteFooter() {
           </p>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm sm:gap-8">
+          <Link href="/whats-new" className="hover:text-[#2EC4B6]">
+            What’s New
+          </Link>
           <Link href="/fairness" className="hover:text-[#2EC4B6]">
             Fairness engine
           </Link>
           <Link href="/privacy" className="hover:text-[#2EC4B6]">
             Privacy
+          </Link>
+          <Link href="/terms" className="hover:text-[#2EC4B6]">
+            Terms
           </Link>
           <Link href="/contact" className="hover:text-[#2EC4B6]">
             Contact
@@ -34,12 +40,16 @@ export function SiteFooter() {
           className="text-[#2EC4B6] hover:underline"
         >
           how we round amounts
-        </Link>{" "}
-        and our{" "}
+        </Link>
+        ,{" "}
         <Link href="/privacy" className="text-[#2EC4B6] hover:underline">
           Privacy &amp; Trust
-        </Link>{" "}
-        page for limitations.
+        </Link>
+        , and{" "}
+        <Link href="/terms" className="text-[#2EC4B6] hover:underline">
+          Terms of Service
+        </Link>
+        .
       </p>
       <p className="mt-4 text-center text-xs text-slate-500">
         © {new Date().getFullYear()} HabiMate. All rights reserved.

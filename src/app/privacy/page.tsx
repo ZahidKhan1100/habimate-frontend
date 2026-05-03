@@ -3,16 +3,15 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { GlassPanel } from "@/components/ui/glass-panel";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy & Trust | HabiMate",
+export const metadata: Metadata = pageMetadata({
+  title: "Privacy & Trust",
   description:
-    "How we handle your data, receipts, and trust—plain language and the legal details.",
-  openGraph: {
-    title: "Privacy & Trust | HabiMate",
-    description: "The HabiMate promise alongside our legal commitments.",
-  },
-};
+    "HabiMate Privacy & Trust: how we handle household data, receipt images, analytics, and your rights.",
+  path: "/privacy",
+  keywords: ["privacy policy", "data protection", "receipt scanning privacy"],
+});
 
 export default function PrivacyPage() {
   return (
@@ -43,9 +42,16 @@ export default function PrivacyPage() {
                 <p>
                   You may request access or deletion of personal data where
                   applicable law applies. Continued use of the service
-                  constitutes acceptance of the full Terms of Service and
-                  Privacy Policy (link your full legal documents when
-                  published).
+                  constitutes acceptance of our{" "}
+                  <Link
+                    href="/terms"
+                    className="font-semibold text-[#2EC4B6] underline-offset-2 hover:underline"
+                  >
+                    Terms of Service
+                  </Link>{" "}
+                  and this Privacy &amp; Trust summary. The app links to these
+                  pages on habimate.com so legal text can be updated without an
+                  app store resubmission.
                 </p>
                 <p>
                   <strong className="text-slate-900 dark:text-white">
