@@ -15,43 +15,58 @@ export function SiteFooter() {
           </p>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm sm:gap-8">
-          <Link href="/whats-new" className="hover:text-[#2EC4B6]">
+          <Link
+            href="/whats-new"
+            className="underline decoration-slate-500 underline-offset-2 hover:text-[#2EC4B6] hover:decoration-[#2EC4B6]"
+          >
             What’s New
           </Link>
-          <Link href="/fairness" className="hover:text-[#2EC4B6]">
+          <Link
+            href="/fairness"
+            className="underline decoration-slate-500 underline-offset-2 hover:text-[#2EC4B6] hover:decoration-[#2EC4B6]"
+          >
             Fairness engine
           </Link>
-          <Link href="/privacy" className="hover:text-[#2EC4B6]">
+          <Link href="/privacy" className="underline decoration-slate-500 underline-offset-2 hover:text-[#2EC4B6] hover:decoration-[#2EC4B6]">
             Privacy
           </Link>
-          <Link href="/terms" className="hover:text-[#2EC4B6]">
+          <Link href="/terms" className="underline decoration-slate-500 underline-offset-2 hover:text-[#2EC4B6] hover:decoration-[#2EC4B6]">
             Terms
           </Link>
-          <Link href="/contact" className="hover:text-[#2EC4B6]">
+          <Link
+            href="/contact"
+            className="underline decoration-slate-500 underline-offset-2 hover:text-[#2EC4B6] hover:decoration-[#2EC4B6]"
+          >
             Contact
           </Link>
         </div>
       </div>
-      <p className="mt-10 max-w-2xl mx-auto px-6 text-center text-[11px] leading-relaxed text-slate-500">
+      <p className="mt-10 mx-auto max-w-2xl px-6 text-center text-[11px] leading-relaxed text-slate-400">
         HabiMate provides tools to organize shared expenses—not legal, tax, or
         financial advice. See{" "}
         <Link
           href="/fairness#calculations-disclaimer"
-          className="text-[#2EC4B6] hover:underline"
+          className="font-medium text-[#2EC4B6] underline decoration-[#2EC4B6]/70 underline-offset-2 hover:text-[#26b0a3]"
         >
           how we round amounts
         </Link>
         ,{" "}
-        <Link href="/privacy" className="text-[#2EC4B6] hover:underline">
+        <Link
+          href="/privacy"
+          className="font-medium text-[#2EC4B6] underline decoration-[#2EC4B6]/70 underline-offset-2 hover:text-[#26b0a3]"
+        >
           Privacy &amp; Trust
         </Link>
         , and{" "}
-        <Link href="/terms" className="text-[#2EC4B6] hover:underline">
+        <Link
+          href="/terms"
+          className="font-medium text-[#2EC4B6] underline decoration-[#2EC4B6]/70 underline-offset-2 hover:text-[#26b0a3]"
+        >
           Terms of Service
         </Link>
         .
       </p>
-      <p className="mt-4 text-center text-xs text-slate-500">
+      <p className="mt-4 text-center text-xs text-slate-400">
         © {new Date().getFullYear()} HabiMate. All rights reserved.
       </p>
     </footer>

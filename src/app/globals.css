@@ -63,8 +63,3 @@ body {
   animation: wall-marquee 28s linear infinite;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .animate-wall-marquee {
-    animation: none;
-  }
-}

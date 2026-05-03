@@ -253,6 +253,7 @@ export function FairnessCalculatorSection() {
                               checked={effectiveBuyerId === m.id}
                               onChange={() => setBuyerId(m.id)}
                               className="accent-[#FF6A6A]"
+                              aria-label={`${m.name || "Mate"} is the buyer (receives reimbursements)`}
                             />
                             Buyer (gets paid)
                           </label>
@@ -268,6 +269,7 @@ export function FairnessCalculatorSection() {
                                   }))
                                 }
                                 className="accent-[#2EC4B6]"
+                                aria-label={`${m.name || "Mate"} pays back their share`}
                               />
                               Pays back
                             </label>
@@ -380,10 +382,10 @@ export function FairnessCalculatorSection() {
                 </div>
               ) : mode === "bills" && expensePlan ? (
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-white/50">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-white/65">
                     Expense settlement
                   </p>
-                  <p className="mt-1 text-xs text-white/40">
+                  <p className="mt-1 text-xs text-white/65">
                     {PERIOD}-day month · weighted by days in house
                   </p>
                   <ul className="mt-5 space-y-3">
@@ -401,7 +403,7 @@ export function FairnessCalculatorSection() {
                         >
                           {m.name || `Person ${i + 1}`}
                           {i === expensePlan.payer && (
-                            <span className="ml-2 text-[10px] font-bold uppercase text-white/40">
+                            <span className="ml-2 text-[10px] font-bold uppercase text-white/65">
                               paid bill
                             </span>
                           )}
@@ -410,7 +412,7 @@ export function FairnessCalculatorSection() {
                           <span className="font-mono text-base font-bold text-[#2EC4B6]">
                             ${expensePlan.shares[i].toFixed(2)}
                           </span>
-                          <span className="ml-2 text-[10px] text-white/35">
+                          <span className="ml-2 text-[10px] text-white/55">
                             fair share
                           </span>
                         </div>
@@ -428,11 +430,11 @@ export function FairnessCalculatorSection() {
                     </div>
                   ))}
                   <div className="mt-6 border-t border-white/10 pt-4">
-                    <p className="text-xs font-bold uppercase tracking-wider text-white/50">
+                    <p className="text-xs font-bold uppercase tracking-wider text-white/65">
                       Suggested transfers
                     </p>
                     {expensePlan.transfers.length === 0 ? (
-                      <p className="mt-3 text-sm text-white/50">
+                      <p className="mt-3 text-sm text-white/65">
                         No money moves needed (payer&apos;s share covers the
                         advance).
                       </p>
@@ -445,7 +447,7 @@ export function FairnessCalculatorSection() {
                           >
                             <span className="min-w-0 break-words text-white/80">
                               {mates[t.from].name}{" "}
-                              <span className="text-white/40">→</span>{" "}
+                              <span className="text-white/65">→</span>{" "}
                               {mates[t.to].name}
                             </span>
                             <span className="shrink-0 font-mono font-bold text-[#2EC4B6]">
@@ -456,13 +458,13 @@ export function FairnessCalculatorSection() {
                       </ul>
                     )}
                   </div>
-                  <p className="mt-4 text-center text-xs text-white/35">
+                  <p className="mt-4 text-center text-xs text-white/55">
                     Total bill ${B.toFixed(2)}
                   </p>
                 </div>
               ) : hasGenerated && mode === "buyback" && buybackPlan ? (
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-white/50">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-white/65">
                     Buy-back settlement
                   </p>
                   <ul className="mt-5 space-y-2">
@@ -473,7 +475,7 @@ export function FairnessCalculatorSection() {
                       >
                         <span className="min-w-0 break-words text-xs text-white/85 sm:text-sm">
                           {r.fromName}{" "}
-                          <span className="text-white/40">→</span> {r.toName}
+                          <span className="text-white/65">→</span> {r.toName}
                         </span>
                         <span className="shrink-0 font-mono text-base font-bold text-[#2EC4B6] sm:text-lg">
                           ${r.amount.toFixed(2)}

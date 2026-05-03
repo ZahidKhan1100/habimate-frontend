@@ -29,12 +29,12 @@ export function SiteHeader({ className }: { className?: string }) {
           <SiteLogo size={36} priority className="shrink-0 rounded-lg" />
           <span className="truncate">HabiMate</span>
         </Link>
-        <nav className="hidden items-center gap-6 lg:gap-8 md:flex">
+        <nav className="hidden items-center gap-6 underline-offset-4 md:flex lg:gap-8">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-slate-600 transition hover:text-[#FF6A6A] dark:text-slate-300"
+              className="text-sm font-medium text-slate-600 underline decoration-slate-400/70 transition hover:text-[#FF6A6A] hover:decoration-[#FF6A6A] dark:text-slate-300 dark:decoration-slate-500"
             >
               {item.label}
             </Link>
