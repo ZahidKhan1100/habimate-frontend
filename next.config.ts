@@ -1,6 +1,19 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      // Legacy CMS / old marketing URLs that Google still discovers.
+      { source: "/author/:path*", destination: "/", permanent: true },
+      { source: "/product-category/:path*", destination: "/", permanent: true },
+      { source: "/parking.php", destination: "/", permanent: true },
+      { source: "/half-list/", destination: "/", permanent: true },
+      { source: "/half-list", destination: "/", permanent: true },
+      // If an old password reset URL exists in another system, point users somewhere safe.
+      { source: "/reset-password/", destination: "/join", permanent: true },
+      { source: "/reset-password", destination: "/join", permanent: true },
+    ];
+  },
   compiler: {
     removeConsole:
       process.env.NODE_ENV === "production"

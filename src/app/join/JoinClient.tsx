@@ -79,12 +79,12 @@ export function JoinClient() {
       </ol>
 
       <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <a
+        <Link
           href="/#download"
           className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-[#FF6A6A] px-6 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-[#FF6A6A]/30 transition hover:bg-[#ef5a5a]"
         >
           Get the app
-        </a>
+        </Link>
         {openInAppHref ? (
           <a
             href={openInAppHref}
