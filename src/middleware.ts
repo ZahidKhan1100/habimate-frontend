@@ -36,9 +36,9 @@ export function middleware(request: NextRequest) {
     canonicalProtocol === "https" && forwardedProto && forwardedProto !== "https";
 
   if (shouldRedirectHost || shouldRedirectProto) {
-    const url = request.nextUrl.clone();
-    url.host = canonicalHost;
-    url.protocol = `${canonicalProtocol}:`;
+    // IMPORTANT: don't reuse `request.nextUrl` for redirects on Railway, because it may include
+    // the internal service port (e.g. `:8080`). Always rebuild from the canonical public origin.
+    const url = new URL(`${request.nextUrl.pathname}${request.nextUrl.search}`, SITE_URL);
     return NextResponse.redirect(url, 308);
   }
 
