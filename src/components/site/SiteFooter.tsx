@@ -40,6 +40,12 @@ export function SiteFooter() {
             Terms
           </Link>
           <Link
+            href="/delete-account"
+            className="text-teal-300 underline decoration-slate-500 underline-offset-2 hover:text-teal-200 hover:decoration-teal-300"
+          >
+            Delete account
+          </Link>
+          <Link
             href="/contact"
             className="text-teal-300 underline decoration-slate-500 underline-offset-2 hover:text-teal-200 hover:decoration-teal-300"
           >

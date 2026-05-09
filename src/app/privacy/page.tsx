@@ -41,7 +41,15 @@ export default function PrivacyPage() {
                 </p>
                 <p>
                   You may request access or deletion of personal data where
-                  applicable law applies. Continued use of the service
+                  applicable law applies. Step-by-step account deletion for the
+                  mobile app is described on our{" "}
+                  <Link
+                    href="/delete-account"
+                    className="font-semibold text-[#2EC4B6] underline-offset-2 hover:underline"
+                  >
+                    Delete account
+                  </Link>{" "}
+                  page. Continued use of the service
                   constitutes acceptance of our{" "}
                   <Link
                     href="/terms"
