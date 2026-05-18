@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { SiteLogo } from "@/components/site/SiteLogo";
+import { AppleLogoMark } from "@/components/marketing/AppleLogoMark";
+import { androidPlayStoreUrl, iosAppStoreUrl } from "@/lib/storeUrls";
 
 export function SiteFooter() {
+  const appStoreHref = iosAppStoreUrl();
+  const playHref = androidPlayStoreUrl();
+
   return (
     <footer className="border-t border-white/10 bg-slate-950 py-10 pb-[max(2.5rem,env(safe-area-inset-bottom))] text-slate-400 sm:py-12">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:px-6 md:flex-row md:justify-between">
@@ -13,6 +18,27 @@ export function SiteFooter() {
           <p className="mt-2 max-w-sm text-sm leading-relaxed text-slate-300">
             Shared living, simplified. The referee—not the cop.
           </p>
+          <div className="mt-5 flex flex-wrap items-center gap-4">
+            <a
+              href={appStoreHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="HabiMate on the App Store (opens new tab)"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              <AppleLogoMark className="h-5 w-5 text-teal-200" />
+              App Store
+            </a>
+            <a
+              href={playHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="HabiMate on Google Play (opens new tab)"
+              className="inline-flex rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              Google Play
+            </a>
+          </div>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm sm:gap-8">
           <Link

@@ -1,9 +1,14 @@
 import Link from "next/link";
 import { GlassPanel } from "@/components/ui/glass-panel";
 import { SiteLogo } from "@/components/site/SiteLogo";
+import { AppleLogoMark } from "@/components/marketing/AppleLogoMark";
+import { androidPlayStoreUrl, iosAppStoreUrl } from "@/lib/storeUrls";
 import { Sparkles } from "lucide-react";
 
 export function HeroSection() {
+  const appStoreHref = iosAppStoreUrl();
+  const playHref = androidPlayStoreUrl();
+
   return (
     <section className="relative overflow-hidden px-4 pb-16 pt-12 sm:px-6 sm:pb-24 sm:pt-16 md:pt-24">
       <div
@@ -32,13 +37,18 @@ export function HeroSection() {
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
             <a
-              href="#download"
-              className="inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-[#FF6A6A] px-8 py-3.5 text-center font-semibold text-white shadow-xl shadow-[#FF6A6A]/30 transition hover:bg-[#ef5a5a] sm:min-h-14 sm:py-0"
+              href={appStoreHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-2xl bg-[#FF6A6A] px-8 py-3.5 text-center font-semibold text-white shadow-xl shadow-[#FF6A6A]/30 transition hover:bg-[#ef5a5a] sm:min-h-14 sm:py-0"
             >
+              <AppleLogoMark className="h-6 w-6 shrink-0 text-white/95" />
               App Store
             </a>
             <a
-              href="#download"
+              href={playHref}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border border-white/10 bg-white/10 px-8 py-3.5 text-center font-semibold text-slate-900 backdrop-blur-[15px] transition hover:bg-white/20 dark:text-white sm:min-h-14 sm:py-0"
             >
               Google Play

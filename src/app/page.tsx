@@ -7,6 +7,8 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { GlassPanel } from "@/components/ui/glass-panel";
 import { pageMetadata } from "@/lib/seo";
+import { androidPlayStoreUrl, iosAppStoreUrl } from "@/lib/storeUrls";
+import { AppleLogoMark } from "@/components/marketing/AppleLogoMark";
 
 const FairnessCalculatorSection = dynamic(
   () =>
@@ -91,6 +93,9 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function Home() {
+  const appStoreHref = iosAppStoreUrl();
+  const playHref = androidPlayStoreUrl();
+
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
@@ -194,18 +199,23 @@ export default function Home() {
               Get the app
             </h2>
             <p className="mt-3 text-sm text-slate-700 dark:text-slate-300 sm:text-base">
-              Deep link into your house with Expo—add your Branch / universal
-              link here when ready.
+              Download HabiMate on iPhone or Android—open the app and join your
+              house with a code or invite link.
             </p>
             <div className="mt-8 flex w-full max-w-md flex-col items-stretch justify-center gap-3 sm:mx-auto sm:mt-10 sm:max-w-none sm:flex-row sm:items-center sm:gap-4">
               <a
-                href="#"
-                className="inline-flex min-h-[48px] w-full items-center justify-center rounded-2xl bg-slate-900 px-8 py-3.5 font-semibold text-white dark:bg-white dark:text-slate-900 sm:min-h-14 sm:w-auto sm:min-w-[200px] sm:py-0"
+                href={appStoreHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-2xl bg-slate-900 px-8 py-3.5 font-semibold text-white dark:bg-white dark:text-slate-900 sm:min-h-14 sm:w-auto sm:min-w-[200px] sm:py-0"
               >
+                <AppleLogoMark className="h-6 w-6 shrink-0 text-white dark:text-slate-900" />
                 App Store
               </a>
               <a
-                href="#"
+                href={playHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex min-h-[48px] w-full items-center justify-center rounded-2xl border border-slate-300 bg-white py-3.5 font-semibold text-slate-900 hover:bg-slate-50 dark:border-white/15 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800 sm:min-h-14 sm:w-auto sm:min-w-[200px] sm:py-0"
               >
                 Google Play
