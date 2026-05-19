@@ -9,9 +9,6 @@ const nextConfig: NextConfig = {
       { source: "/parking.php", destination: "/", permanent: true },
       { source: "/half-list/", destination: "/", permanent: true },
       { source: "/half-list", destination: "/", permanent: true },
-      // If an old password reset URL exists in another system, point users somewhere safe.
-      { source: "/reset-password/", destination: "/join", permanent: true },
-      { source: "/reset-password", destination: "/join", permanent: true },
     ];
   },
   compiler: {

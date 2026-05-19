@@ -24,3 +24,12 @@ export function apiUrl(path: string): string {
   }
   return `${API_BASE_URL}/${segment}`;
 }
+
+/** Must match Expo `scheme` in houseexpenses `app.json`. */
+export const PASSWORD_RESET_IOS_SCHEME =
+  process.env.NEXT_PUBLIC_PASSWORD_RESET_IOS_SCHEME?.trim() ||
+  "com.ihabimate.habimate";
+
+export const PASSWORD_RESET_ANDROID_PACKAGE =
+  process.env.NEXT_PUBLIC_PASSWORD_RESET_ANDROID_PACKAGE?.trim() ||
+  "com.ihabimate.habimate";
