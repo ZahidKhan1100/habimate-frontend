@@ -9,6 +9,7 @@ import { GlassPanel } from "@/components/ui/glass-panel";
 import { pageMetadata } from "@/lib/seo";
 import { androidPlayStoreUrl, iosAppStoreUrl } from "@/lib/storeUrls";
 import { AppleLogoMark } from "@/components/marketing/AppleLogoMark";
+import { SplitRoundingCallout } from "@/components/marketing/SplitRoundingCallout";
 
 const FairnessCalculatorSection = dynamic(
   () =>
@@ -103,6 +104,11 @@ export default function Home() {
         <HeroSection />
         <div className="home-below-hero">
           <FairnessCalculatorSection />
+          <section className="border-b border-white/10 px-4 py-10 sm:px-6 sm:py-14">
+            <div className="mx-auto max-w-3xl">
+              <SplitRoundingCallout />
+            </div>
+          </section>
           <HouseWrappedPreview />
           <SplitEngineSection />
           <WallLiveMock />

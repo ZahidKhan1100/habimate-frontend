@@ -7,6 +7,7 @@ import { GlassPanel } from "@/components/ui/glass-panel";
 import Link from "next/link";
 import { splitEqualCentsParts } from "@/lib/splitEqualCents";
 import { weightedSplitCents } from "@/lib/weightedSplitCents";
+import { SPLIT_ROUNDING_EXAMPLE_TITLE, SPLIT_ROUNDING_WHO_GETS_CENT } from "@/lib/splitRoundingRule";
 
 const PERIOD = 30;
 const MAX_MATES = 6;
@@ -160,6 +161,12 @@ export function FairnessCalculatorSection() {
         <p className="mx-auto mt-4 max-w-2xl text-center text-base text-slate-600 dark:text-slate-300 sm:text-lg">
           Add roommates, set days home or buy-back roles, then generate a
           settlement preview—the same ideas HabiMate uses in the app.
+        </p>
+        <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-slate-600 dark:text-slate-400">
+          <span className="font-semibold text-slate-800 dark:text-slate-200">
+            {SPLIT_ROUNDING_EXAMPLE_TITLE}:
+          </span>{" "}
+          €3.34 · €3.33 · €3.33. {SPLIT_ROUNDING_WHO_GETS_CENT}
         </p>
 
         <GlassPanel className="mt-10 p-4 sm:mt-12 sm:p-6 md:p-10">

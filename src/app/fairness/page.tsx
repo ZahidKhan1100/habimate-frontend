@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { FairnessCalculatorSection } from "@/components/marketing/FairnessCalculatorSection";
+import { SplitRoundingCallout } from "@/components/marketing/SplitRoundingCallout";
 import { GlassPanel } from "@/components/ui/glass-panel";
 import { pageMetadata } from "@/lib/seo";
 
@@ -70,23 +71,12 @@ export default function FairnessPage() {
                 (and the money) stays fair.
               </p>
             </GlassPanel>
-            <GlassPanel className="p-5 sm:p-6" id="calculations-disclaimer">
+            <SplitRoundingCallout id="calculations-disclaimer" />
+            <GlassPanel className="p-5 sm:p-6">
               <h2 className="font-heading text-xl font-bold text-slate-900 dark:text-white">
-                Calculations, cents &amp; rounding
+                Bills, buy-backs &amp; balances
               </h2>
-              <p className="mt-2 text-sm leading-relaxed">
-                Money is stored and split in{" "}
-                <strong className="text-slate-900 dark:text-white">
-                  whole cents
-                </strong>{" "}
-                so shares add up to the total you enter. When a total does not
-                divide evenly (for example €10.00 split three ways), the extra
-                cent is assigned using a fixed rule: remainder cents go to
-                participants in a stable order (the same order your house uses
-                in the app for that split). That way nothing “vanishes,” and the
-                math is consistent and auditable.
-              </p>
-              <p className="mt-3 text-sm leading-relaxed">
+              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                 <strong className="text-slate-900 dark:text-white">
                   Bill splits
                 </strong>{" "}
@@ -94,9 +84,8 @@ export default function FairnessPage() {
                 <strong className="text-slate-900 dark:text-white">
                   stock buy-backs
                 </strong>{" "}
-                both follow this cent-safe approach. Buy-backs are recorded as
-                separate transfers from your shared expense totals so
-                reimbursements stay clear.
+                both use the cent rule above. Buy-backs are separate transfers
+                from everyday expenses so reimbursements stay clear on Pay.
               </p>
               <p className="mt-4 rounded-xl border border-[#FF6A6A]/25 bg-[#FF6A6A]/5 p-4 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
                 <strong className="font-semibold text-slate-900 dark:text-white">
