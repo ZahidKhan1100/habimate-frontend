@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Copy, Check } from "lucide-react";
 import { SITE_URL } from "@/config/urls";
+import { androidPlayStoreUrl, iosAppStoreUrl } from "@/lib/storeUrls";
 
 export function JoinClient() {
   const search = useSearchParams();
@@ -73,7 +74,27 @@ export function JoinClient() {
       </div>
 
       <ol className="list-decimal space-y-3 pl-5 text-slate-600 dark:text-slate-300">
-        <li>Install the HabiMate app from the App Store or Google Play.</li>
+        <li>
+          Install HabiMate from the{" "}
+          <a
+            href={iosAppStoreUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-[#2EC4B6] underline-offset-2 hover:underline"
+          >
+            App Store
+          </a>{" "}
+          or{" "}
+          <a
+            href={androidPlayStoreUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-[#2EC4B6] underline-offset-2 hover:underline"
+          >
+            Google Play
+          </a>
+          .
+        </li>
         <li>Sign up or log in, then start joining a house — paste the code when asked, or use Scan QR inside the app.</li>
         <li>If the app is already installed, you can try opening the invite in the app.</li>
       </ol>

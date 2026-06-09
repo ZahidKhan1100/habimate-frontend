@@ -227,17 +227,17 @@ export default function Home() {
                 Google Play
               </a>
             </div>
-            <GlassPanel className="mx-auto mt-10 max-w-lg p-5 sm:mt-12 sm:p-6">
-              <p className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                Join the waitlist for early access and house invites.
-              </p>
-              <Link
-                href="/contact"
-                className="mt-4 inline-flex font-bold text-teal-800 underline underline-offset-2 hover:text-teal-900 dark:text-teal-300 dark:hover:text-teal-200"
+            <p className="mx-auto mt-8 max-w-lg text-sm text-slate-600 dark:text-slate-400">
+              Android:{" "}
+              <a
+                href={playHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-teal-800 underline underline-offset-2 hover:text-teal-900 dark:text-teal-300 dark:hover:text-teal-200"
               >
-                Contact us →
-              </Link>
-            </GlassPanel>
+                HabiMate on Google Play
+              </a>
+            </p>
           </div>
         </section>
       </div>

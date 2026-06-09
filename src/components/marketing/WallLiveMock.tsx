@@ -1,6 +1,7 @@
 "use client";
 
 import { GlassPanel } from "@/components/ui/glass-panel";
+import { WALL_SNIPPET_PHOTO_RETENTION_SHORT } from "@/lib/wallSnippetRetention";
 
 const feed = [
   { text: "Alex just settled the Electric Bill", emoji: "⚡️" },
@@ -54,6 +55,7 @@ export function WallLiveMock() {
               <li>• Real-time activity without the noise</li>
               <li>• Proof of payment when it matters</li>
               <li>• Enough personality to feel like home</li>
+              <li>• {WALL_SNIPPET_PHOTO_RETENTION_SHORT}</li>
             </ul>
           </div>
         </div>

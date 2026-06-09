@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { FairnessCalculatorSection } from "@/components/marketing/FairnessCalculatorSection";
 import { SplitRoundingCallout } from "@/components/marketing/SplitRoundingCallout";
+import { WALL_SNIPPET_PHOTO_RETENTION_DETAIL } from "@/lib/wallSnippetRetention";
 import { GlassPanel } from "@/components/ui/glass-panel";
 import { pageMetadata } from "@/lib/seo";
 
@@ -46,6 +47,14 @@ export default function FairnessPage() {
                 When everyone doesn&apos;t stay the full month, we weight each
                 person&apos;s share by their active days—so nobody subsidizes
                 someone else&apos;s travel.
+              </p>
+            </GlassPanel>
+            <GlassPanel className="p-5 sm:p-6">
+              <h2 className="font-heading text-xl font-bold text-slate-900 dark:text-white">
+                House Wall photos
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                {WALL_SNIPPET_PHOTO_RETENTION_DETAIL}
               </p>
             </GlassPanel>
             <GlassPanel className="p-5 sm:p-6">
