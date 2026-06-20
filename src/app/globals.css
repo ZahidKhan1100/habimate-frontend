@@ -4,19 +4,24 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #ffffff;
+  --foreground: #1d1d1f;
   --brand: #ff6a6a;
   --brand-soft: #ff8e8e;
   --teal: #2ec4b6;
-  --muted: #64748b;
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --muted: #6e6e73;
+  --surface: #f5f5f7;
+  --border: rgba(0, 0, 0, 0.08);
+  --glass-border: rgba(0, 0, 0, 0.06);
 }
 
 .dark {
-  --background: #0b1220;
-  --foreground: #f1f5f9;
-  --muted: #94a3b8;
+  --background: #000000;
+  --foreground: #f5f5f7;
+  --muted: #86868b;
+  --surface: #1c1c1e;
+  --border: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.08);
   color-scheme: dark;
 }
 
@@ -28,6 +33,7 @@ html:not(.dark) {
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -44,6 +50,8 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
   padding-bottom: env(safe-area-inset-bottom);

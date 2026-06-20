@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 const nav = [
   { href: "/", label: "Home" },
-  { href: "/whats-new", label: "What’s New" },
+  { href: "/whats-new", label: "What's New" },
   { href: "/fairness", label: "Fairness" },
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
@@ -33,53 +33,53 @@ export function MobileNav() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-slate-200/80 bg-white/80 text-slate-800 shadow-sm backdrop-blur-[15px] dark:border-white/10 dark:bg-white/10 dark:text-white"
+        className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-full bg-[#f5f5f7] text-[#1d1d1f] transition hover:bg-[#eaeaea] dark:bg-white/8 dark:text-white dark:hover:bg-white/12"
         aria-expanded={open}
         aria-controls="mobile-nav-panel"
         aria-label="Open menu"
       >
-        <Menu className="h-5 w-5" strokeWidth={2.25} />
+        <Menu className="h-5 w-5" strokeWidth={2} />
       </button>
 
       {open ? (
         <div
           id="mobile-nav-panel"
-          className="fixed inset-0 z-[100] flex flex-col md:hidden"
+          className="fixed inset-0 z-100 flex flex-col md:hidden"
           role="dialog"
           aria-modal="true"
           aria-label="Site navigation"
         >
           <div
-            className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/25 backdrop-blur-sm"
             onClick={() => setOpen(false)}
             aria-hidden
           />
           <nav
             className={cn(
-              "relative ml-auto flex h-full w-full max-w-sm flex-col border-l border-white/10 bg-[var(--background)] shadow-2xl",
-              "pt-[max(1rem,env(safe-area-inset-top))] pb-[max(1rem,env(safe-area-inset-bottom))] pl-6 pr-[max(1.5rem,env(safe-area-inset-right))]",
+              "relative ml-auto flex h-full w-full max-w-sm flex-col bg-white shadow-2xl dark:bg-black",
+              "pt-[max(1rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))] pl-6 pr-[max(1.5rem,env(safe-area-inset-right))]",
             )}
           >
-            <div className="flex items-center justify-between border-b border-white/10 py-4 pr-2">
-              <span className="font-heading text-lg font-bold text-[#FF6A6A]">
+            <div className="flex items-center justify-between border-b border-black/6 py-4 pr-2 dark:border-white/8">
+              <span className="font-heading text-base font-bold text-[#1d1d1f] dark:text-white">
                 Menu
               </span>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white"
+                className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-full bg-[#f5f5f7] text-[#1d1d1f] dark:bg-white/8 dark:text-white"
                 aria-label="Close menu"
               >
-                <X className="h-5 w-5" />
+                <X className="h-4 w-4" />
               </button>
             </div>
-            <ul className="flex flex-1 flex-col gap-1 py-6">
+            <ul className="flex flex-1 flex-col py-6">
               {nav.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="flex min-h-12 items-center rounded-xl px-3 text-lg font-semibold text-slate-800 underline decoration-slate-400 decoration-2 underline-offset-4 active:bg-[#FF6A6A]/10 dark:text-slate-100 dark:decoration-slate-500 dark:active:bg-white/10"
+                    className="flex min-h-12 items-center rounded-xl px-2 text-base font-medium text-[#1d1d1f] transition active:bg-[#f5f5f7] dark:text-white dark:active:bg-white/5"
                   >
                     {item.label}
                   </Link>
@@ -89,7 +89,7 @@ export function MobileNav() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mb-4 inline-flex min-h-12 items-center justify-center rounded-2xl bg-[#FF6A6A] px-6 text-center font-bold text-white shadow-lg shadow-[#FF6A6A]/25"
+              className="mb-4 inline-flex min-h-12 items-center justify-center rounded-full bg-[#FF6A6A] px-6 text-sm font-semibold text-white transition hover:bg-[#f05a5a]"
             >
               Get support
             </Link>

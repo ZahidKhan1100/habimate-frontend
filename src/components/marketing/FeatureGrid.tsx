@@ -32,22 +32,24 @@ export function FeatureGrid() {
   return (
     <section className="px-4 py-16 sm:px-6 sm:py-24">
       <div className="mx-auto max-w-6xl">
-        <h2 className="font-heading text-center text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl md:text-4xl">
+        <h2 className="font-heading text-center text-2xl font-extrabold tracking-tight text-[#1d1d1f] dark:text-white sm:text-3xl md:text-4xl">
           Built for real households
         </h2>
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {features.map((f) => (
-            <GlassPanel key={f.title} className="p-6">
-              <div className="flex items-center justify-between">
-                <f.icon className="h-8 w-8 text-[#FF6A6A]" strokeWidth={1.5} />
-                <span className="rounded-full bg-teal-800/15 px-2 py-0.5 text-xs font-bold text-teal-900 dark:bg-teal-400/15 dark:text-teal-300">
+            <GlassPanel key={f.title} className="p-7">
+              <div className="flex items-start justify-between">
+                <div className="rounded-xl bg-[#f5f5f7] p-2.5 dark:bg-white/6">
+                  <f.icon className="h-6 w-6 text-[#FF6A6A]" strokeWidth={1.5} />
+                </div>
+                <span className="rounded-full bg-[#f5f5f7] px-2.5 py-0.5 text-xs font-semibold text-[#6e6e73] dark:bg-white/6 dark:text-[#86868b]">
                   {f.tag}
                 </span>
               </div>
-              <h3 className="font-heading mt-4 text-lg font-bold text-slate-900 dark:text-white">
+              <h3 className="font-heading mt-5 text-base font-bold text-[#1d1d1f] dark:text-white">
                 {f.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              <p className="mt-2 text-sm leading-relaxed text-[#6e6e73] dark:text-[#86868b]">
                 {f.body}
               </p>
             </GlassPanel>

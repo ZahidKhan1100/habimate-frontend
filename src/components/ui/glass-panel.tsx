@@ -13,8 +13,8 @@ export function GlassPanel({
   return (
     <Comp
       className={cn(
-        "rounded-3xl border border-slate-200/80 bg-white/85 text-slate-900 shadow-xl backdrop-blur-[15px]",
-        "dark:border-white/10 dark:bg-slate-900/40 dark:text-slate-100",
+        "rounded-2xl border border-black/6 bg-white text-[#1d1d1f] shadow-[0_2px_20px_rgba(0,0,0,0.06)]",
+        "dark:border-white/8 dark:bg-[#1c1c1e] dark:text-[#f5f5f7] dark:shadow-none",
         className,
       )}
       {...props}
